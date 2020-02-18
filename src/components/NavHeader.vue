@@ -1,12 +1,12 @@
 <template>
-    <div class="articleListShow">
-        article
+    <div class="NavHeader">
+        header
     </div>
 </template>
 
 <script>
 export default {
-    name: 'articleListShow',
+    name: 'NavHeader',
     data() { 
         return {
 
