@@ -1,13 +1,13 @@
 <template>
     <div class="login" id="loginH">
-        <el-form :model="ruleForm" ref="ruleForm" class="container" label-width="60px">
+        <el-form v-model="ruleForm" ref="ruleForm" class="container" label-width="60px">
             <el-form-item label="账号" prop="acount" class="container-item">
-                <el-input :model="ruleForm.acount">
+                <el-input v-model="ruleForm.acount" autocomplete="off">
 
                 </el-input>
             </el-form-item >
             <el-form-item label="密码" prop="password" class="container-item">
-                <el-input :model="ruleForm.password">
+                <el-input v-model="ruleForm.password" autocomplete="off">
                     
                 </el-input>
             </el-form-item>
@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import {loginReuqest} from '../api/login.js'
 export default {
     name: 'login',
     data() { 
@@ -28,7 +29,7 @@ export default {
             ruleForm:{
                 acount:'',
                 password:'',
-            }
+            },
         }
     },
     mounted(){
@@ -41,7 +42,14 @@ export default {
             loginH.style.height= `${h}px`
         },
         submitForm(){
-            
+            loginReuqest({
+                username:this.acount,
+                password:this.password
+            }).then(res=>{
+                console.log(res)
+                this.$cookies.set('token',res.data.token,'30s')
+                console.log(this.$cookies.get('token'))
+            })
         }
     }
 }
