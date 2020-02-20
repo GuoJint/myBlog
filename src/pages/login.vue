@@ -15,6 +15,9 @@
                 <el-button type="primary" @click="submitForm('ruleForm')">
                     登录
                 </el-button>
+                <el-button type="primary" @click="toRegiste()">
+                    注册
+                </el-button>
             </el-form-item>
         </el-form>
     </div>
@@ -48,8 +51,13 @@ export default {
             }).then(res=>{
                 console.log(res)
                 this.$cookies.set('token',res.data.token,'30s')
-                console.log(this.$cookies.get('token'))
+                this.$router.push('/articleShow')
+            }).catch(err=>{
+                this.$message(err)
             })
+        },
+        toRegiste(){
+            this.$router.push('/register')
         }
     }
 }
