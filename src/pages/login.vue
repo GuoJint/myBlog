@@ -6,8 +6,8 @@
 
                 </el-input>
             </el-form-item >
-            <el-form-item label="密码" prop="password" class="container-item">
-                <el-input v-model="ruleForm.password" autocomplete="off">
+            <el-form-item label="密码" prop="userPassword" class="container-item">
+                <el-input v-model="ruleForm.userPassword" autocomplete="off">
                     
                 </el-input>
             </el-form-item>
@@ -31,7 +31,7 @@ export default {
         return {
             ruleForm:{
                 acount:'',
-                password:'',
+                userPassword:'',
             },
         }
     },
@@ -45,16 +45,24 @@ export default {
             loginH.style.height= `${h}px`
         },
         submitForm(){
-            loginReuqest({
-                username:this.acount,
-                password:this.password
-            }).then(res=>{
-                console.log(res)
-                this.$cookies.set('token',res.data.token,'30s')
-                this.$router.push('/articleShow')
-            }).catch(err=>{
-                this.$message(err)
-            })
+            if(this.ruleForm.acount||this.ruleForm.userPassword){
+                loginReuqest({
+                    username:this.acount,
+                    userPassword:this.userPassword
+                }).then(res=>{
+                    // console.log(res)
+                    this.$cookies.set('token',res.data.token,'30s')
+                    this.$router.push('/articleShow')
+                }).catch(err=>{
+                    this.$message(err)
+                })
+            }else{
+                this.$message({
+                    message:'请输入账号或密码',
+                    type:'warning'
+                })
+            }
+            
         },
         toRegiste(){
             this.$router.push('/register')
