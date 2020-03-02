@@ -9,7 +9,17 @@ const routes = [
                 path:'/articleShow',
                 name:'articleShow',
                 component:()=>import('../pages/articleListShow.vue'),
-            }
+            },
+            {
+                path:'/myBlog',
+                name:'myBlog',
+                component:()=>import('../pages/myBlog.vue'),
+            },
+            {
+                path:'/myAttention',
+                name:'myAttention',
+                component:()=>import('../pages/myAttention.vue'),
+            },
         ]
     },
     {

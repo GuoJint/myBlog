@@ -2,9 +2,9 @@
     <div class="NavHeader">
         <div class="container">
             <div class="centerLeft">
-                <span @click="toHome">首页</span>
-                <span>我的博客</span>
-                <span>我的关注</span>
+                <span :class="HomeActive" @click="toHome">首页</span>
+                <span :class="BlogActive" @click="toMyBlog">我的博客</span>
+                <span :class="AtActive" @click="toMyAttention">我的关注</span>
             </div>
             <div class="centerRight">
                 <span>我的中心</span>
@@ -20,14 +20,45 @@ export default {
     data() { 
         return {
             nowRouterPath:this.$route.name,
+            HomeActive:"active",
+            BlogActive:"none",
+            AtActive:"none",
         }
     },
     methods:{
         toHome(){
-            console.log(this.nowRouterPath)
             if(this.nowRouterPath  !== "articleShow"){
-                console.log("ss")
                 this.$router.push("/articleShow")
+                this.HomeActive = "active"
+                this.BlogActive = "none"
+                this.AtActive = "none"
+                setTimeout(() => {
+                    this.nowRouterPath = this.$route.name
+                }, 100);
+            }
+        },
+        toMyBlog(){
+            if(this.nowRouterPath !== "myBlog"){
+                this.$router.push("/myBlog")
+                this.BlogActive = "active"
+                this.AtActive = "none"
+                this.HomeActive = "none"
+                setTimeout(() => {
+                    this.nowRouterPath = this.$route.name
+                }, 100);
+            }
+            
+            
+        },
+        toMyAttention(){
+            if(this.nowRouterPath !== "myAttention"){
+                this.$router.push("/myAttention")
+                this.AtActive = "active"
+                this.HomeActive = "none"
+                this.BlogActive = "none"
+                setTimeout(() => {
+                    this.nowRouterPath = this.$route.name
+                }, 100);
             }
         }
     }
@@ -48,6 +79,12 @@ export default {
         }
         span:hover{
             cursor: pointer;
+        }
+        .active{
+            background-color: #ECE6E6;
+            color: #409EFF;
+            padding: 20px 10px;
+            transition: all 0.3s
         }
         .centerLeft,.centerRight{
             display: inline-block;
