@@ -24,6 +24,24 @@ Mock.mock('/api/register',{
 })
 
 //文章详情
+
+Mock.mock('/api/searchAry',{
+    data:
+        [
+                { "value": "三全鲜食（北新泾店）", "address": "长宁区新渔路144号" },
+                { "value": "Hot honey 首尔炸鸡（仙霞路）", "address": "上海市长宁区淞虹路661号" },
+                { "value": "新旺角茶餐厅", "address": "上海市普陀区真北路988号创邑金沙谷6号楼113" },
+                { "value": "泷千家(天山西路店)", "address": "天山西路438号" },
+                { "value": "胖仙女纸杯蛋糕（上海凌空店）", "address": "上海市长宁区金钟路968号1幢18号楼一层商铺18-101" },
+                { "value": "贡茶", "address": "上海市长宁区金钟路633号" },
+                { "value": "豪大大香鸡排超级奶爸", "address": "上海市嘉定区曹安公路曹安路1685号" },
+                { "value": "茶芝兰（奶茶，手抓饼）", "address": "上海市普陀区同普路1435号" },
+                { "value": "十二泷町", "address": "上海市北翟路1444弄81号B幢-107" },
+        ]
+    
+})
+
+
 Mock.mock('/api/articleListShow',{
     pageSize:7,
     total:70,
@@ -31,6 +49,7 @@ Mock.mock('/api/articleListShow',{
     data:{
         articleList:[
             {
+                username:"gjt",
                 articleID:1001,
                 userID:12,
                 title:'Vue原理',
@@ -38,13 +57,15 @@ Mock.mock('/api/articleListShow',{
                 
             },
             {
+                username:"gjt2",
                 articleID:1015,
                 userID:31,
                 title:'v-bind9',
-                article:"这里我们遇到了一点新东西。你看到的 v-bind attribute 被称为指令。指令带有前缀 v-，以表示它们是 Vue 提供的特殊 attribute。可能你已经猜到了，它们会在渲染的 DOM 上应用特殊的响应式行为。在这里，该指令的意思是：“将这个元素节点的 title attribute 和 Vue 实例的 message 属性保持一致”。如果你再次打开浏览器的 JavaScript 控制台，输入 app2.message = '新消息'，就会再一次看到这个绑定了 title attribute 的 HTML 已经进行了更新。"
+                article:"这里我们遇到了一点新东西。点新东西点新东西点新东西点新东西点新东西点新东西点新东西你看到的 v-bind attribute 被称为指令。指令带有前缀 bind attribute 被称为指令。指令带有前缀 bind attribute 被称为指令。指令带有前缀 bind attribute 被称为指令。指令带有前缀 bind attribute 被称为指令。指令带有前缀 v-，以表示它们是 Vue 提供的特殊 attribute。可能你已经猜到了，它们会在渲染的 DOM 上应用特殊的响应式行为。在这里，该指令的意思是：“将这个元素节点的 title attribute 和 Vue 实例的 message 属性保持一致”。如果你再次打开浏览器的 JavaScript 控制台，输入 app2.message = '新消息'，就会再一次看到这个绑定了 title attribute 的 HTML 已经进行了更新。"
                 
             },
             {
+                username:"gjt3",
                 articleID:1015,
                 userID:31,
                 title:'v-bind7',
@@ -53,6 +74,7 @@ Mock.mock('/api/articleListShow',{
             }
             ,
             {
+                username:"gjt",
                 articleID:1015,
                 userID:31,
                 title:'v-bind5',
@@ -61,6 +83,7 @@ Mock.mock('/api/articleListShow',{
             }
             ,
             {
+                username:"gjt",
                 articleID:1015,
                 userID:31,
                 title:'v-bind4',
@@ -69,6 +92,7 @@ Mock.mock('/api/articleListShow',{
             }
             ,
             {
+                username:"gjt",
                 articleID:1015,
                 userID:31,
                 title:'v-bind2',
@@ -77,6 +101,7 @@ Mock.mock('/api/articleListShow',{
             }
             ,
             {
+                username:"gjt",
                 articleID:1015,
                 userID:31,
                 title:'v-bind3',

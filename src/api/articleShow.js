@@ -6,3 +6,12 @@ export const articleListRequest = ()=>{
         method:'get',
     })
 }
+export const searchAryRequest = (queryString)=>{
+    return axios.request({
+        url:'/searchAry',
+        method:'post',
+        Data:{
+            queryString,
+        }
+    })
+}

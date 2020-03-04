@@ -24,10 +24,11 @@ export default {
 </script>
 <style lang="scss">
 .NavMark{
+    padding-top:60px; 
     width: 100%;
     height: 50px;
     .container{
-        width: 1208px;
+        width: 1000px;
         margin: 0 auto;
         line-height: 50px
     }

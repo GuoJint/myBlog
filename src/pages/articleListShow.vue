@@ -4,12 +4,14 @@
             <div class="content">
                 <el-card class="box-card" v-for="(item,index) in articleList" :key="index">
                     <div slot="header" class="clearfix">
+                        <span>{{item.username}}</span>
                         <span>{{item.title}}</span>
                         <el-button style="float: right; padding: 3px 0" type="text">>></el-button>
                     </div>
-                    <div>
+                    <div class="article" >
                         {{item.article}}
                     </div>
+                    <div></div>
                 </el-card>
             </div>
             <el-pagination
@@ -58,12 +60,31 @@ export default {
     width: 100%;
     .container{
         overflow-y: hidden;
-        width: 1208px;
+        width: 1000px;
         // height: 200px;s
         margin: 0 auto;
         .pagination{
             width: 40%;
             margin: 0 auto;
+        }
+        .content{
+            width: 80%;
+            .box-card{
+                margin-top:20px; 
+                .clearfix{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+                .article{
+                    overflow: hidden;
+                    max-height: 60px;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp:3;
+                }
+            }
+            
         }
     }
 }
