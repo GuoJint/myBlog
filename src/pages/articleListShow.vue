@@ -11,7 +11,14 @@
                     <div class="article" >
                         {{item.article}}
                     </div>
-                    <div></div>
+                    <div class="bottom" >
+                        <time class="time">{{item.time}}</time>
+                        <div class="interactive">
+                            <span class="good icon iconfont icondianzan3">{{item.good}}</span>
+                            <span class="watched el-icon-view">{{item.watched}}</span>
+                            <span class="comment el-icon-chat-dot-square">{{item.comment}}</span>
+                        </div>
+                    </div>
                 </el-card>
             </div>
             <el-pagination
@@ -63,10 +70,6 @@ export default {
         width: 1000px;
         // height: 200px;s
         margin: 0 auto;
-        .pagination{
-            width: 40%;
-            margin: 0 auto;
-        }
         .content{
             width: 80%;
             .box-card{
@@ -78,13 +81,48 @@ export default {
                 }
                 .article{
                     overflow: hidden;
-                    max-height: 60px;
+                    max-height: 65px;
                     display: -webkit-box;
                     -webkit-box-orient: vertical;
                     -webkit-line-clamp:3;
                 }
+                .bottom{
+                    font-size: 15px;
+                    margin-top: 13px;
+                    line-height: 12px;
+                    .time {
+                        color: #999;
+                    }
+                    .interactive{
+                        float: right;
+                        span{
+                            width: 60px;
+                            margin-right: 10px;
+                            color: #409EFF;
+                            &::before{
+                                margin-right: 3px;
+                                color: #909399;
+                            }
+                            &::after{
+                                content:'|';
+                                margin: 0 0 0 5px;
+                                color: #909399;
+                            }
+                            &:hover{
+                                cursor: pointer;
+                            }
+                        }
+                        .comment::after{
+                            content:'';
+                        }
+                    }
+                }
             }
             
+        }
+        .pagination{
+            width: 40%;
+            margin: 20px auto;
         }
     }
 }
