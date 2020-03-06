@@ -5,6 +5,8 @@ import ElementUI from 'element-ui';
 import VueCookies from 'vue-cookies'
 import 'element-ui/lib/theme-chalk/index.css';
 
+//图标样式
+import "./assets/icons/iconfont.css"
 
 const mock = true;
 if(mock){
