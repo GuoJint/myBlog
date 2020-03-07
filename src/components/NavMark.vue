@@ -1,6 +1,5 @@
 <template>
     <div class="NavMark">
-        
         <el-checkbox-group class="container" v-model="checkList">
             <el-checkbox label="HTML"></el-checkbox>
             <el-checkbox label="CSS"></el-checkbox>

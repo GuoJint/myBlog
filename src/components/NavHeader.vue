@@ -106,9 +106,11 @@ export default {
     position: fixed;
     z-index: 10;
     .container{
+        position:absolute;
+        left: 50%;
+        transform: translateX(-50%);
         width: 1000px;
         height: 60px;
-        margin: 0 auto;
         background-color: #409EFF;
         span{
             margin-right:15px; 

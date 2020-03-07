@@ -19,4 +19,8 @@ export default {
   margin: 0;
   padding: 0;
 }
+body {
+  overflow-y: scroll;
+}
+
 </style>

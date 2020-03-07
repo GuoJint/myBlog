@@ -5,7 +5,7 @@
                 <el-card class="box-card" v-for="(item,index) in articleList" :key="index">
                     <div slot="header" class="clearfix">
                         <span>{{item.username}}</span>
-                        <span>{{item.title}}</span>
+                        <h3>{{item.title}}</h3>
                         <el-button style="float: right; padding: 3px 0" type="text">>></el-button>
                     </div>
                     <div class="article" >
@@ -87,7 +87,7 @@ export default {
                     -webkit-line-clamp:3;
                 }
                 .bottom{
-                    font-size: 15px;
+                    font-size: 14px;
                     margin-top: 13px;
                     line-height: 12px;
                     .time {
@@ -111,6 +111,9 @@ export default {
                             &:hover{
                                 cursor: pointer;
                             }
+                        }
+                        .good{
+                            font-size: 14px;
                         }
                         .comment::after{
                             content:'';
