@@ -20,6 +20,11 @@ const routes = [
                 name:'myAttention',
                 component:()=>import('../pages/myAttention.vue'),
             },
+            {
+                path:'/articleEdit',
+                name:'articleEdit',
+                component:()=>import('../pages/articleEdit.vue'),
+            },
         ]
     },
     {

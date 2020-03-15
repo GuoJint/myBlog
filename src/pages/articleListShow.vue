@@ -21,14 +21,21 @@
                     </div>
                 </el-card>
             </div>
-            <el-pagination
-                class="pagination"
-                background
-                layout="prev, pager, next"
-                :page-size="pageSize"
-                :total="totalSize">
-            </el-pagination>
+            <div class="right">
+                <div class="r-box-card1">
+                    <span @click="toEdit()">写文章</span>
+                    <span>草稿箱</span>
+                </div>
+            </div>
+            
         </div>
+        <el-pagination
+            class="pagination"
+            background
+            layout="prev, pager, next"
+            :page-size="pageSize"
+            :total="totalSize">
+        </el-pagination>
     </div>
 </template>
 
@@ -58,6 +65,10 @@ export default {
                 this.pageSize = res.pageSize
                 console.log(this.articleList)
             })
+        },
+        toEdit(){
+            this.$router.push('/articleEdit')
+            console.log('xx')
         }
     }
 }
@@ -70,8 +81,10 @@ export default {
         width: 1000px;
         // height: 200px;s
         margin: 0 auto;
+        display: flex;
+
         .content{
-            width: 80%;
+            width: 75%;
             .box-card{
                 margin-top:20px; 
                 .clearfix{
@@ -121,12 +134,27 @@ export default {
                     }
                 }
             }
-            
         }
-        .pagination{
-            width: 40%;
-            margin: 20px auto;
+        .right{
+            flex: 1;
+            .r-box-card1{
+                padding: 20px;
+                margin: 20px 0 10px 5px;
+                border: 1px solid #EBEEF5;
+                box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+                border-radius: 5px;
+                display: -webkit-flex;
+                justify-content: space-around;
+                align-items: center;
+                span{
+                    cursor:pointer;
+                }
+            }
         }
+    }
+    .pagination{
+        width: 40%;
+        margin: 20px auto;
     }
 }
 </style>
