@@ -20,6 +20,14 @@ const routes = [
                 name:'myAttention',
                 component:()=>import('../pages/myAttention.vue'),
             },
+        ]
+    },
+    {
+        path:'/editHome',
+        name:'editHome',
+        component:()=>import('../pages/editHome.vue'),
+        redirect:'/articleEdit',
+        children:[
             {
                 path:'/articleEdit',
                 name:'articleEdit',
@@ -36,6 +44,11 @@ const routes = [
         path:'/register',
         name:'register',
         component:()=>import('../pages/register.vue'),
+    },
+    {
+        path:'/404',
+        name:'404-NotFound',
+        component:()=>import('../pages/404.vue'),
     }
 ]
 export default routes
