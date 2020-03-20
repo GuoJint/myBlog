@@ -133,3 +133,9 @@ Mock.mock('/api/articleListShow',{
     }
 })
 
+//文章编辑
+Mock.mock('/api/editHome/articleEdit',{
+    data:{
+        message:'已经保存至草稿箱'
+    }
+})
