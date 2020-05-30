@@ -149,7 +149,7 @@ export default {
                 }
             }
         },
-        submitForm(formName){
+        submitFormReg(formName){
             this.$refs[formName].validate((valid)=>{
                 if(valid){
                     registerRequest({

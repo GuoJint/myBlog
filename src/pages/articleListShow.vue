@@ -21,12 +21,7 @@
                     </div>
                 </el-card>
             </div>
-            <div class="right">
-                <div class="r-box-card1">
-                    <span @click="toEdit()">写文章</span>
-                    <span>草稿箱</span>
-                </div>
-            </div>
+            
             
         </div>
         <el-pagination
@@ -53,9 +48,24 @@ export default {
     created(){
         this.getArticleList()
     },
+    mounted(){
+        // window.addEventListener('scroll',this.rightFixed(),false)
+    },
     computed: {
     },
     methods:{
+        // rightFixed(){
+        //     let rightTop = document.documentElement.scrollTop
+        //     console.log(rightTop)
+        //     console.log(document.documentElement)
+        //     if(rightTop == 70){
+        //         let right = document.getElementById('right')
+        //         right.style.position = 'fixed'
+        //         right.style.left = '60%'
+
+        //     }
+            
+        // },
         getArticleList(){
             //初始化加载时接受总共条目数以及一页的条目数
             //在参数中传入page数，后端返回对应page数的内容
@@ -77,14 +87,16 @@ export default {
 .articleListShow{
     width: 100%;
     .container{
+        position: relative;
         overflow-y: hidden;
-        width: 1000px;
+        width: 58%;
         // height: 200px;s
         margin: 0 auto;
         display: flex;
-
+        
         .content{
             width: 75%;
+            
             .box-card{
                 margin-top:20px; 
                 .clearfix{
@@ -135,22 +147,7 @@ export default {
                 }
             }
         }
-        .right{
-            flex: 1;
-            .r-box-card1{
-                padding: 20px;
-                margin: 20px 0 10px 5px;
-                border: 1px solid #EBEEF5;
-                box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
-                border-radius: 5px;
-                display: -webkit-flex;
-                justify-content: space-around;
-                align-items: center;
-                span{
-                    cursor:pointer;
-                }
-            }
-        }
+        
     }
     .pagination{
         width: 40%;

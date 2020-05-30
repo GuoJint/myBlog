@@ -2,9 +2,27 @@
     <div class="NavHeader">
         <div class="container">
             <div class="centerLeft">
-                <span :class="HomeActive" @click="toHome">首页</span>
+                <div :class="HomeActive" @click="toHome" class="index">
+                    <i class="index-icon iconfont">&#xe620;</i>
+                    <div class="index-font">
+                        <p >首页</p>
+                    </div>
+                </div>
+                <div :class="BlogActive" @click="toMyBlog" class="index">
+                    <i class="index-icon iconfont">&#xe63f;</i>
+                    <div class="index-font">
+                        <p >我的博客</p>
+                    </div>
+                </div>
+                <div :class="AtActive" @click="toMyAttention" class="index">
+                    <i class="index-icon iconfont">&#xe61e;</i>
+                    <div class="index-font">
+                        <p >我的关注</p>
+                    </div>
+                </div>
+                <!-- <span :class="HomeActive" @click="toHome">首页</span>
                 <span :class="BlogActive" @click="toMyBlog">我的博客</span>
-                <span :class="AtActive" @click="toMyAttention">我的关注</span>
+                <span :class="AtActive" @click="toMyAttention">我的关注</span> -->
             </div>
             <div class="centerRight">
                 <el-autocomplete
@@ -102,7 +120,10 @@ export default {
     box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
     width: 100%;
     height: 60px;
-    background-color: #409EFF;
+    // background-color: #409EFF;
+    background-image: linear-gradient(90deg,#93b5cf,#5cb3cc,#2e317c);
+    background-size: 200%;
+    animation: bganimation 15s infinite;
     position: fixed;
     z-index: 10;
     .container{
@@ -111,9 +132,9 @@ export default {
         transform: translateX(-50%);
         width: 1000px;
         height: 60px;
-        background-color: #409EFF;
+        background-color: rgba(255, 255, 255, 0);
         span{
-            margin-right:15px; 
+            margin-right:40px; 
         }
         span:hover{
             cursor: pointer;
@@ -121,23 +142,74 @@ export default {
         .active{
             background-color: #ECE6E6;
             color: #409EFF;
-            padding: 20px 10px;
-            transition: all 0.3s
+            transition: all 0.3s;
+            padding: 0 5px;
+            .index-font{
+                font-size: 13px !important;
+                color: #409EFF !important;
+            }
         }
-        .centerLeft,.centerRight{
+        .centerRight{
             display: inline-block;
             line-height: 60px;
             color: #ECE6E6;
         }
+        .centerLeft{
+            position: absolute;
+            top: 0;
+            display: flex;
+            .index{
+                width: 70px;
+                height: 60px;
+                margin-right: 5px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: all 1s ease;
+                .index-icon{
+                    color: RGB(0,132,255);  //颜色
+                    font-size: 25px;
+                }
+                .index-icon:hover{
+                    cursor: pointer;
+                }
+                .index-font{
+                    color: RGB(0,132,255);
+                    font-size: 0;
+                    transition: all .5s ease;
+                    
+                }
+            }
+            .index:hover .index-font{
+                cursor: pointer;
+                color: RGB(0,132,255);
+                font-size: 13px !important;
+            }
+            span{
+                margin: 0;
+            }
+        }
         .centerRight{
             float: right;
             .inline-input{
-                margin-right: 15px;
+                margin-right: 50px;
                 input{
                     height: 30px;
                 }
             }
         }
+    }
+}
+@keyframes bganimation {
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
     }
 }
 </style>
