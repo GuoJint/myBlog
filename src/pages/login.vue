@@ -12,7 +12,7 @@
                             </el-input>
                         </el-form-item >
                         <el-form-item prop="userPassword" class="container-item">
-                            <el-input v-model="ruleForm.userPassword" autocomplete="off" placeholder="Password">
+                            <el-input type="password" v-model="ruleForm.userPassword" autocomplete="off" placeholder="Password">
                                 
                             </el-input>
                         </el-form-item>
@@ -43,13 +43,13 @@
                                 
                             </el-input>
                         </el-form-item>
-                        <el-form-item  prop="phone">
-                            <el-input v-model="ruleForm.phone" placeholder="Your Phone">
+                        <el-form-item  prop="mail">
+                            <el-input v-model="ruleForm.mail" placeholder="Your Mail">
                                 
                             </el-input>
                         </el-form-item>
                         <el-form-item  prop="verificationCode" class="verificationCode">
-                            <el-input v-model="ruleForm.verificationCode" class="verificationCode-count" placeholder="Phone Code">
+                            <el-input v-model="ruleForm.verificationCode" class="verificationCode-count" placeholder="Mail Code">
                                 
                             </el-input>
                             <el-button class="code" type="primary" plain :disabled=codeFlag @click="sendCode">{{time}}</el-button>
@@ -91,7 +91,7 @@ export default {
                 callback()
             }
         }
-        var checkPhone = (rule,value,callback)=>{
+        var checkMail = (rule,value,callback)=>{
             return this.judgeCode(value,callback)
         }
         return {
@@ -104,7 +104,7 @@ export default {
                 accountReg:'',
                 userPasswordReg:'',
                 confirmPSW:'',
-                phone:'',
+                mail:'',
                 verificationCode:''
                 
             },
@@ -122,9 +122,9 @@ export default {
                     { required: true, message: '请确认密码', trigger: 'blur' },
                     { validator:checkPass , trigger:'blur'}
                 ],
-                phone:[
-                    { required: true, message: '请输入手机号', trigger: 'blur' },
-                    { validator: checkPhone , trigger:'blur'}
+                mail:[
+                    { required: true, message: '请输入邮箱', trigger: 'blur' },
+                    { validator: checkMail , trigger:'blur'}
                 ],
                 verificationCode:[
                     { required: true, message: '请输入验证码', trigger: 'blur' },
@@ -150,14 +150,15 @@ export default {
             loginH.style.height= `${h}px`
         },
         sendCode(){
-            let flag = this.judgeCode(this.ruleForm.phone)
+            let flag = this.judgeCode(this.ruleForm.mail)
             // console.log(flag)
             if(flag){
-                sendCodeRequest({
-                    phone:this.ruleForm.phone
-                }).then((res)=>{
+                sendCodeRequest(
+                    this.ruleForm.mail
+                ).then((res)=>{
+                    console.log(res)
                     this.$message({
-                        message:res.data.message,
+                        message:res.msg,
                         type:'success'
                     })
                     this.time = 60
@@ -170,19 +171,19 @@ export default {
                             return
                         }
                         this.time -= 1
-                    },100)
+                    },1000)
                 })
             }else{
-                this.$message.error("请输入正确的手机格式")
+                this.$message.error("请输入正确的邮箱格式")
             }
             
         },
         judgeCode(value,callback){
-            let phoneReg = /^1[3456789]\d{9}$/
-            if(!phoneReg.test(value)){
-                
+            // let mailReg = /^1[3456789]\d{9}$/
+            let mailReg = /^([a-zA-Z\d])(\w|-)+@[a-zA-Z\d]+\.[a-zA-Z]{2,4}$/
+            if(!mailReg.test(value)){
                 if(callback){
-                    callback(new Error("请输入正确的手机格式"))
+                    callback(new Error("请输入正确的邮箱格式"))
                 }else{
                     return false
                 }
@@ -197,31 +198,31 @@ export default {
         submitFormReg(formName){
             this.$refs[formName].validate((valid)=>{
                 if(valid){
-                    registerRequest({
-                        acount:this.ruleForm.account,
-                        userPassword:this.ruleForm.userPassword,
-                        phone:this.ruleForm.phone,
-                        code:this.ruleForm.verificationCode
-                    }).then((res)=>{
+                    registerRequest(
+                        this.ruleForm.accountReg,
+                        this.ruleForm.userPasswordReg,
+                        this.ruleForm.mail,
+                        this.ruleForm.verificationCode
+                    ).then((res)=>{
                         this.$message({
-                            message:res.data.message,
+                            message:res.msg,
                             type:'success'
                         })
-                        this.$router.push('/login')
+                        this.changeAmt()
                     }).catch((err)=>{
-                        this.$message.error(err.data.message)
+                        this.$message.error(err)
                     })
                 }
             })
         },
         submitForm(){
             if(this.ruleForm.acount||this.ruleForm.userPassword){
-                loginReuqest({
-                    username:this.acount,
-                    userPassword:this.userPassword
-                }).then(res=>{
+                loginReuqest(
+                    this.ruleForm.acount,
+                    this.ruleForm.userPassword
+                ).then(res=>{
                     // console.log(res)
-                    this.$cookies.set('token',res.data.token,'30s')
+                    this.$cookies.set('token',res.token,'30s')
                     this.$router.push('/articleShow')
                 }).catch(err=>{
                     this.$message(err)
@@ -269,7 +270,7 @@ export default {
                 position: relative;
                 width: 50%;
                 height: 100%;
-                background: #ff0;
+                background: rgba(255,255,255,0.2);
                 transition: 0.5s;
                 img{
                     position: absolute;
@@ -284,7 +285,7 @@ export default {
                 position: relative;
                 width: 50%;
                 height: 100%;
-                background: #fff;
+                background: rgba(255,255,255,0.2);
                 display: flex;
                 justify-content:center;
                 align-items: center;
@@ -326,7 +327,7 @@ export default {
                     }
                     .reg{
                         width: 100%;
-                        background-image: linear-gradient(90deg,#93b5cf,#5cb3cc,#2e317c);
+                        background-image: linear-gradient(141deg,#9fb8ad 0%,#1fc8db 51%,#2cb5e8 75%);
                         background-size: 200%;
                         animation: bganimation 15s infinite;
                     }
@@ -354,7 +355,7 @@ export default {
                     }
                     .myLogin{
                         width: 100%;
-                        background-image: linear-gradient(90deg,#93b5cf,#5cb3cc,#2e317c);
+                        background-image:linear-gradient(141deg,#9fb8ad 0%,#1fc8db 51%,#2cb5e8 75%);
                         background-size: 200%;
                         animation: bganimation 15s infinite;
                     }

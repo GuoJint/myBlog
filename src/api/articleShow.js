@@ -1,5 +1,5 @@
 import axios from "./index"
-
+//应该传递用户id
 export const articleListRequest = ()=>{
     return axios.request({
         url:'/articleListShow',
@@ -13,5 +13,12 @@ export const searchAryRequest = (queryString)=>{
         Data:{
             queryString,
         }
+    })
+}
+//应该传递文章id
+export const commentListRequest = ()=>{
+    return axios.request({
+        url:'/commentList',
+        method:'get',
     })
 }

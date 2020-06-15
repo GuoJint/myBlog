@@ -1,22 +1,22 @@
 import axios from './index'
 
-export const sendCodeRequest = (phone)=>{
+export const sendCodeRequest = (mail)=>{
     return axios.request({
-        url:'/register/code',
+        url:'/user/getMailCode',
         method:'post',
         data:{
-            phone
+            mail
         }
     })
 }
-export const registerRequest = (acount,userPassword,phone,code)=>{
+export const registerRequest = (user,psw,Mail,code)=>{
     return axios.request({
-        url:'/register',
+        url:'/user/reg',
         method:'post',
         data:{
-            acount,
-            userPassword,
-            phone,
+            user,
+            psw,
+            Mail,
             code
         }
     })

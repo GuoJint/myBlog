@@ -1,11 +1,11 @@
 import axios from './index'
-export const loginReuqest = (username,userPassword)=>{
+export const loginReuqest = (user,psw)=>{
     return axios.request({
-        url:'/login',
+        url:'/user/login',
         method:'post',
         data:{
-            username,
-            userPassword
+            user,
+            psw
         }
     })
 }

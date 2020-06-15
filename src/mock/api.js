@@ -49,6 +49,7 @@ Mock.mock('/api/articleListShow',{
     data:{
         articleList:[
             {
+                detailShow:false,
                 username:"gjt",
                 articleID:1001,
                 userID:12,
@@ -60,6 +61,7 @@ Mock.mock('/api/articleListShow',{
                 comment:Random.integer(1,100),
             },
             {
+                detailShow:false,
                 username:"gjt2",
                 articleID:1015,
                 userID:31,
@@ -71,8 +73,9 @@ Mock.mock('/api/articleListShow',{
                 comment:Random.integer(1,100),
             },
             {
+                detailShow:false,
                 username:"gjt3",
-                articleID:1015,
+                articleID:102,
                 userID:31,
                 title:'v-bind7',
                 article:"这里我们遇到了一点新东西。你看到的 v-bind attribute 被称为指令。指令带有前缀 v-，以表示它们是 Vue 提供的特殊 attribute。可能你已经猜到了，它们会在渲染的 DOM 上应用特殊的响应式行为。在这里，该指令的意思是：“将这个元素节点的 title attribute 和 Vue 实例的 message 属性保持一致”。如果你再次打开浏览器的 JavaScript 控制台，输入 app2.message = '新消息'，就会再一次看到这个绑定了 title attribute 的 HTML 已经进行了更新。",
@@ -83,8 +86,9 @@ Mock.mock('/api/articleListShow',{
             }
             ,
             {
+                detailShow:false,
                 username:"gjt",
-                articleID:1015,
+                articleID:1014,
                 userID:31,
                 title:'v-bind5',
                 article:"这里我们遇到了一点新东西。你看到的 v-bind attribute 被称为指令。指令带有前缀 v-，以表示它们是 Vue 提供的特殊 attribute。可能你已经猜到了，它们会在渲染的 DOM 上应用特殊的响应式行为。在这里，该指令的意思是：“将这个元素节点的 title attribute 和 Vue 实例的 message 属性保持一致”。如果你再次打开浏览器的 JavaScript 控制台，输入 app2.message = '新消息'，就会再一次看到这个绑定了 title attribute 的 HTML 已经进行了更新。",
@@ -95,8 +99,9 @@ Mock.mock('/api/articleListShow',{
             }
             ,
             {
+                detailShow:false,
                 username:"gjt",
-                articleID:1015,
+                articleID:1016,
                 userID:31,
                 title:'v-bind4',
                 article:"这里我们遇到了一点新东西。你看到的 v-bind attribute 被称为指令。指令带有前缀 v-，以表示它们是 Vue 提供的特殊 attribute。可能你已经猜到了，它们会在渲染的 DOM 上应用特殊的响应式行为。在这里，该指令的意思是：“将这个元素节点的 title attribute 和 Vue 实例的 message 属性保持一致”。如果你再次打开浏览器的 JavaScript 控制台，输入 app2.message = '新消息'，就会再一次看到这个绑定了 title attribute 的 HTML 已经进行了更新。",
@@ -107,8 +112,9 @@ Mock.mock('/api/articleListShow',{
             }
             ,
             {
+                detailShow:false,
                 username:"gjt",
-                articleID:1015,
+                articleID:1017,
                 userID:31,
                 title:'v-bind2',
                 article:"这里我们遇到了一点新东西。你看到的 v-bind attribute 被称为指令。指令带有前缀 v-，以表示它们是 Vue 提供的特殊 attribute。可能你已经猜到了，它们会在渲染的 DOM 上应用特殊的响应式行为。在这里，该指令的意思是：“将这个元素节点的 title attribute 和 Vue 实例的 message 属性保持一致”。如果你再次打开浏览器的 JavaScript 控制台，输入 app2.message = '新消息'，就会再一次看到这个绑定了 title attribute 的 HTML 已经进行了更新。",
@@ -119,8 +125,9 @@ Mock.mock('/api/articleListShow',{
             }
             ,
             {
+                detailShow:false,
                 username:"gjt",
-                articleID:1015,
+                articleID:1018,
                 userID:31,
                 title:'v-bind3',
                 article:"这里我们遇到了一点新东西。你看到的 v-bind attribute 被称为指令。指令带有前缀 v-，以表示它们是 Vue 提供的特殊 attribute。可能你已经猜到了，它们会在渲染的 DOM 上应用特殊的响应式行为。在这里，该指令的意思是：“将这个元素节点的 title attribute 和 Vue 实例的 message 属性保持一致”。如果你再次打开浏览器的 JavaScript 控制台，输入 app2.message = '新消息'，就会再一次看到这个绑定了 title attribute 的 HTML 已经进行了更新。",
@@ -133,9 +140,31 @@ Mock.mock('/api/articleListShow',{
     }
 })
 
-//文章编辑
+//评论获取
 Mock.mock('/api/editHome/articleEdit',{
     data:{
         message:'已经保存至草稿箱'
+    }
+})
+
+//文章编辑
+Mock.mock('/api/commentList',{
+    data:{
+        commentList:[
+            {
+                commentUser:'临江仙',
+                commentContext:'这里我们遇到了一点新东西。点新东西点新东西点新东西点新东西点新东西点新东西点新'
+            },
+            {
+                replyUser:'杠精',
+                commentUser:'临江仙',
+                commentContext:'你在说啥？'
+            },
+            {
+                replyUser:'临江仙',
+                commentUser:'杠精',
+                commentContext:'与你无关'
+            }
+        ]
     }
 })

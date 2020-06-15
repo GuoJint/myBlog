@@ -144,6 +144,9 @@ export default {
             color: #409EFF;
             transition: all 0.3s;
             padding: 0 5px;
+            .index-icon{
+                    color: RGB(0,132,255) !important;  //颜色
+                }
             .index-font{
                 font-size: 13px !important;
                 color: #409EFF !important;
@@ -168,14 +171,14 @@ export default {
                 align-items: center;
                 transition: all 1s ease;
                 .index-icon{
-                    color: RGB(0,132,255);  //颜色
+                    color: RGB(236,230,230);  //颜色
                     font-size: 25px;
                 }
                 .index-icon:hover{
                     cursor: pointer;
                 }
                 .index-font{
-                    color: RGB(0,132,255);
+                    color: RGB(236,230,230);
                     font-size: 0;
                     transition: all .5s ease;
                     
@@ -183,7 +186,7 @@ export default {
             }
             .index:hover .index-font{
                 cursor: pointer;
-                color: RGB(0,132,255);
+                color: RGB(236,230,230);
                 font-size: 13px !important;
             }
             span{
