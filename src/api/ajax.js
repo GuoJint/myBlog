@@ -4,7 +4,8 @@ import axios from 'axios'
 class HttpRequest{
     getInsideConfig(){
         const config={
-            baseURL:'http://10.20.82.36:3000',
+            //baseURL:'http://10.20.82.36:3000',
+            baseURL:'/api',
             timeout:1000
         }
         return config

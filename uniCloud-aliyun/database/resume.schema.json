@@ -1,0 +1,60 @@
+{
+	"bsonType": "object",
+	"required": [],
+	"permission": {
+		"read": true,
+		"create": true,
+		"update": true,
+		"delete": true
+	},
+	"properties": {
+		"_id": {
+			"description": "ID，系统自动生成"
+		},
+		"name": {
+			"bsonType": "string"
+		},
+		"tel": {
+			"bsonType": "string"
+		},
+		"email": {
+			"bsonType": "string"
+		},
+		"native": {
+			"bsonType": "string"
+		},
+		"outtime": {
+			"bsonType": "string"
+		},
+		"skill": {
+			"bsonType": "string"
+		},
+		"busName": {
+			"bsonType": "string"
+		},
+		"major": {
+			"bsonType": "string"
+		},
+		"jobName": {
+			"bsonType": "string"
+		},
+		"jobtime": {
+			"bsonType": "string"
+		},
+		"projectName": {
+			"bsonType": "string"
+		},
+		"project": {
+			"bsonType": "string"
+		},
+		"education": {
+			"bsonType": "string"
+		},
+		"schoolnature": {
+			"bsonType": "string"
+		},
+		"resumeName": {
+			"bsonType": "string"
+		}
+	}
+}

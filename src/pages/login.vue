@@ -1,5 +1,6 @@
 <template>
     <div class="login" id="loginH">
+        <h2 class="title">MyBlog</h2>
         <div :class="amt" class="container" >
             <div class="user singinBx">
                 <div class="imgBx"><img src="../assets/img/img105.jpg" alt=""></div>
@@ -133,7 +134,13 @@ export default {
             }
         }
     },
+    created() {
+        console.log(this)
+        console.log(this.time)
+    },
     mounted(){
+        console.log(this)
+        console.log(this.time)
         this.screenHeight()
     },
     methods:{
@@ -241,6 +248,15 @@ export default {
 </script>
 <style lang="scss">
 .login{
+    .title{
+        position: absolute;
+        top: 9%;
+        font-size: 35px;
+        background-image: linear-gradient(160deg,#2e317c 30%,#5cb3cc,#93b5cf);
+        -webkit-background-clip: text;
+        background-clip:text;
+        color: transparent;
+    }
     position: relative;
     background-color: RGB(45,48,121);
     background-image: linear-gradient(125deg,#93b5cf,#5cb3cc,#2e317c);

@@ -11,7 +11,7 @@ import 'mavon-editor/dist/css/index.css'
 //图标样式
 import "./assets/icons/iconfont.css"
 
-const mock = false;
+const mock = true;
 if(mock){
   require('./mock/api')
 }

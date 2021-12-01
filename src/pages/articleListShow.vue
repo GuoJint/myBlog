@@ -45,7 +45,7 @@
                             </div>
                             <div class="saySomeThing">
                                 <input type="text" placeholder="SaySomeThing" maxlength=30 >
-                                <button>提交</button>
+                                <button @click="submit">提交</button>
                             </div>
                         </div>
                         
@@ -414,6 +414,27 @@ export default {
                         }
                         .commentNumber{
                             margin-left: 10px;
+                        }
+                    }
+                    .comment{
+                        .saySomeThing{
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            input{
+                                margin-top: 20px;
+                                width: 60%;
+                                border: none;
+                                border-radius: 15px;
+                                padding: 10px;
+                            }
+                            button{
+                                margin-top: 20px;
+                                background-color: white;
+                                border: 1px solid blueviolet;
+                                border-radius: 10px;
+                                padding: 10px 15px;
+                            }
                         }
                     }
                 }

@@ -87,29 +87,27 @@
                 <i class="iconfont">&#xe60d;</i>
                 <p>版权服务中心</p>
             </div>
-            
-            
-            
-            
-            
-            
-            
         </div>
     </div>
-    </template>
+</template>
 
-    <script>
+<script>
     export default {
-    name: "NavRight",
-    data() {
-        return {};
-    }
+        name: "NavRight",
+        data() {
+            return {};
+        },
+        methods:{
+            toEdit(){
+                this.$router.push('/editHome')
+            },
+        },
     };
-    </script>
+</script>
     <style lang="scss">
     .right {
         position: fixed;
-        top: 70px;
+        top: 100px;
         right: 19%;
         margin-left: 750px;
         z-index: 100;

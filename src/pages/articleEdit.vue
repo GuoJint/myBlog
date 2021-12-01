@@ -15,9 +15,15 @@ export default {
             value:'',
         }
     },
+    props:{
+        fontSize:{
+            type:String,
+            default:'28px'
+        }
+    },
     methods:{
         $save(value,render){
-            console.log(render)
+            console.log(value,render)
             saveRequest({
                 textHTML:render
             }).then((res)=>{
